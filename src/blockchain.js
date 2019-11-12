@@ -70,7 +70,9 @@
               block.height = self.chain.length;
               if(self.height>0) {
                   block.previousBlockHash = self.chain[self.chain.length - 1].hash
-                }
+                }else  {
+                  block.previousBlockHash = ""
+              }
               block.hash = SHA256(JSON.stringify(block)).toString();
               self.chain.push(block)
               self.height = self.chain.length-1
