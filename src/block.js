@@ -67,7 +67,6 @@ class Block {
       // Getting the encoded data saved in the Block
       // Decoding the data to retrieve the JSON representation of the object
       // Parse the data to an object to be retrieve.
-
       // Resolve with the data if the object isn't the Genesis block
         let data = (JSON.parse(hex2ascii(this.body)))
         if(this.height>0){
