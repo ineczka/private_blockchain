@@ -1,15 +1,12 @@
-# Private Blockchain Application
+# Purpose
 
 
 
 ## What problem will you solve implementing this private Blockchain application?
 
-Your employer is trying to make a test of concept on how a Blockchain application can be implemented in his company.
-He is an astronomy fans and he spend most of his free time on searching stars in the sky, that's why he would like
-to create a test application that will allows him to register stars, and also some others of his friends can register stars
-too but making sure the application know who owned each star.
+Test application that allows to save  stars on a private blockchain and check to ownes stars.
 
-### What is the process describe by the employer to be implemented in the application?
+### Functionality
 
 1. The application will create a Genesis Block when we run the application.
 2. The user will request the application to send a message to be signed using a Wallet and in this way verify the ownership over the wallet address. The message format will be: `<WALLET_ADRESS>:${new Date().getTime().toString().slice(0,-3)}:starRegistry`;
@@ -28,12 +25,12 @@ too but making sure the application know who owned each star.
 7. The application will allow us to retrieve the Star objects belong to an owner (wallet address). 
 
 
-## What tools or technologies you will use to create this application?
+## Tools or technologies  used
 
-- This application will be created using Node.js and Javascript programming language. The architecture will use ES6 classes
-because it will help us to organize the code and facilitate the maintnance of the code.
+- This application is using Node.js and Javascript. The architecture will use ES6 classes  to organize the code and facilitate the maintnance of the code.
 - The company suggest to use Visual Studio Code as an IDE to write your code because it will help you debug the code easily
 but you can choose the code editor you feel confortable with.
+
 - Some of the libraries or npm modules you will use are:
     - "bitcoinjs-lib": "^4.0.3",
     - "bitcoinjs-message": "^2.0.0",
@@ -42,22 +39,22 @@ but you can choose the code editor you feel confortable with.
     - "express": "^4.16.4",
     - "hex2ascii": "0.0.3",
     - "morgan": "^1.9.1"
-    Remember if you need install any other library you will use `npm install <npm_module_name>`
+   
 
 Libraries purpose:
 
-1. `bitcoinjs-lib` and `bitcoinjs-message`. Those libraries will help us to verify the wallet address ownership, we are going to use it to verify the signature.
+1. `bitcoinjs-lib` and `bitcoinjs-message`. To verify the wallet address ownership / the signature.
 2. `express` The REST Api created for the purpose of this project it is being created using Express.js framework.
-3. `body-parser` this library will be used as middleware module for Express and will help us to read the json data submitted in a POST request.
-4. `crypto-js` This module contain some of the most important cryotographic methods and will help us to create the block hash.
-5. `hex2ascii` This library will help us to **decode** the data saved in the body of a Block.
+3. `body-parser`  library used as  a middleware module for Express and  to read the json data submitted in a POST request.
+4. `crypto-js` This module contains some of the most important cryotographic methods used to create the block hash.
+5. `hex2ascii` Tused to 'decode' the data saved in the body of a Block.
 
 
 
-## How to test your application functionalities?
+## How to test application functionalities?
 
 
-1. Run your application using the command `node app.js`
+1. Run the application using the command `node app.js`
 You should see in your terminal a message indicating that the server is listening in port 8000:
 > Server Listening for port: 8000
 
@@ -65,10 +62,10 @@ You should see in your terminal a message indicating that the server is listenin
     Request: http://localhost:8000/block/0 
 3. Make your first request of ownership sending your wallet address:
     Request: http://localhost:8000/requestValidation 
-4. Sign the message with your Wallet    
+4. Sign the message with your Wallet ()   
 5. Submit your Star
      Request: http://localhost:8000/submitstar
-6. Retrieve Stars owned by me
+6. Retrieve Stars owned by the wallet addresss
     Request: http://localhost:8000/blocks/<WALLET_ADDRESS>
 7. Request block by hash value 
     Request: http://localhost:8000/block/hash/:hash
